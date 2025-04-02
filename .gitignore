@@ -5,7 +5,7 @@ venv/
 ENV/
 env/
 *.venv/
-myenv/
+myenv
 
 # Environment variables
 .env
