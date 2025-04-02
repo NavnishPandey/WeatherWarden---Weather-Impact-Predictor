@@ -1,7 +1,7 @@
 import optuna
 from sklearn.model_selection import TimeSeriesSplit, cross_val_score
 from sklearn.metrics import make_scorer, mean_absolute_error
-from model import RainfallPredictor
+from .model import RainfallPredictor
 import numpy as np
 
 def tune_rainfall_model(X, y, n_trials: int = 50) -> dict:

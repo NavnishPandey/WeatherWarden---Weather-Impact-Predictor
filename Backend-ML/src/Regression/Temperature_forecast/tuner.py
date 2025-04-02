@@ -1,7 +1,9 @@
 import optuna
 from sklearn.model_selection import TimeSeriesSplit, cross_val_score
 from sklearn.metrics import make_scorer, mean_absolute_error
-from model import TemperaturePredictor
+from Temperature_forecast.model import TemperaturePredictor
+import numpy as np
+
 
 def tune_temperature_model(X, y, n_trials: int = 50) -> dict:
     """Optimize temperature prediction hyperparameters"""
