@@ -10,7 +10,7 @@ def tune_temperature_model(X, y, n_trials: int = 50) -> dict:
     
     def objective(trial):
         params = {
-            'n_estimators': trial.suggest_int('n_estimators', 100, 500),
+            'n_estimators': trial.suggest_int('n_estimators', 50, 100, 200),
             'learning_rate': trial.suggest_float('learning_rate', 0.01, 0.3, log=True),
             'max_depth': trial.suggest_int('max_depth', 3, 10),
             'min_samples_split': trial.suggest_int('min_samples_split', 2, 20),

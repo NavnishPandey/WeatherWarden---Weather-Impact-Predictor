@@ -14,12 +14,9 @@ from src.utils.regression_utils import (
     evaluate_model
 )
 
-
-
 # Load data
 data_path = r'C:\Users\Alka\Documents\WeatherWarden---Weather-Impact-Predictor\Backend-ML\src\Data gathering\weather_data.csv'
 df, features, temp_target, rain_target = load_and_preprocess(data_path)
-
 
 # Temperature Prediction
 print("\n=== Temperature Prediction ===")
@@ -35,6 +32,6 @@ print("\n=== Rainfall Prediction ===")
 print("\nTuning rainfall model...")
 X_train_rain, X_test_rain, y_train_rain, y_test_rain = temporal_train_test_split(features, rain_target)
 best_rain_params = tune_rainfall_model(X_train_rain, y_train_rain, n_trials=10)
-rain_model = RainfallPredictor().train(X_train, y_train)
+rain_model = RainfallPredictor().train(X_train_rain, y_train_rain)
 rain_metrics = evaluate_model(rain_model, X_test_rain, y_test_rain, "Rainfall")
 print("Rainfall Model Metrics:", rain_metrics)

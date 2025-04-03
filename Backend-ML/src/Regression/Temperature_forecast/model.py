@@ -4,8 +4,11 @@ from src.utils.regression_utils import build_preprocessor
 
 class TemperaturePredictor:
     def __init__(self, params: dict = None):
-        self.numeric_features = ['humidity', 'wind_speed', 'pressure', 'visibility', 
-                               'traffic_density', 'day_of_year', 'month']
+        self.numeric_features = ['humidity', 'wind_speed', 'pressure',
+            'visibility', 'traffic_density',
+            'month_sin', 'month_cos',
+            'day_sin', 'day_cos',
+            'is_weekend']
         self.categorical_features = ['weather_condition', 'road_condition']
         
         self.preprocessor = build_preprocessor(self.numeric_features, self.categorical_features)
