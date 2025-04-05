@@ -7,7 +7,7 @@ class TemperaturePredictor:
     def __init__(self, params: dict = None, n_features: int = 4):
         # All possible features we might consider
         self.all_numeric_features = [
-            'humidity', 'wind_speed', 'pressure',
+            'rainfall', 'humidity', 'wind_speed', 'pressure',
             'visibility', 'traffic_density',
             'month_sin', 'month_cos',
             'day_sin', 'day_cos',
@@ -46,24 +46,19 @@ class TemperaturePredictor:
         """Train the model and store selected features"""
         self.model.fit(X, y)
         self.selected_features = self._get_selected_features(X)
-        return self.model
+        return self.model , self.selected_features
+    
     
     def _get_selected_features(self, X):
-        """Get names of the selected features after training"""
         # Get the selection mask
         mask = self.model.named_steps['feature_selector'].get_support()
         
-        # Get all feature names (numeric + one-hot encoded categorical)
-        numeric_features = self.all_numeric_features
-        categorical_transformer = self.model.named_steps['preprocessor'].named_transformers_['cat']
-        categorical_features = list(
-            categorical_transformer.named_steps['onehot']
-            .get_feature_names_out(self.categorical_features)
-        )
-        all_features = numeric_features + categorical_features
+        # Categorical columns are now single columns due to OrdinalEncoder
+        all_features = self.all_numeric_features + self.categorical_features
         
         # Return only selected features
         return [f for f, m in zip(all_features, mask) if m]
+
     
     def get_feature_importance(self):
         """Get importance scores for selected features"""
