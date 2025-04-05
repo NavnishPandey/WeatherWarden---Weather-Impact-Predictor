@@ -6,7 +6,7 @@ sys.path.append(str(Path(__file__).parent.parent.parent))
 
 from Temperature_forecast.model import TemperaturePredictor
 from Temperature_forecast.tuner import tune_temperature_model
-from src.utils.regression_utils import (
+from utils.regression_utils import (
     load_and_preprocess,
     temporal_train_test_split,
     evaluate_model

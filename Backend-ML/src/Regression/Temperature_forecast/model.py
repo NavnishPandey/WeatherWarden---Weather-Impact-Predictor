@@ -1,7 +1,7 @@
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.feature_selection import SelectKBest, mutual_info_regression
 from sklearn.pipeline import Pipeline
-from src.utils.regression_utils import build_preprocessor
+from utils.regression_utils import build_preprocessor
 
 class TemperaturePredictor:
     def __init__(self, params: dict = None, n_features: int = 4):
