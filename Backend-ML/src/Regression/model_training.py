@@ -14,7 +14,7 @@ from utils.regression_utils import (
 
 
 # Load data
-data_path = r'C:\Users\Alka\Documents\WeatherWarden---Weather-Impact-Predictor\Backend-ML\src\Data gathering\weather_data.csv'
+data_path = r'C:\Users\Alka\Documents\WeatherWarden---Weather-Impact-Predictor\Backend-ML\src\Data_gathering\weather_data1.csv'
 df, features, temp_target, rain_target = load_and_preprocess(data_path)
 
 # Temperature Prediction

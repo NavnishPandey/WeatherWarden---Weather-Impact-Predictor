@@ -8,7 +8,7 @@ from model import WeatherSeverityClassifier
 from utils.classification_utils import load_and_preprocess_data, evaluate_classifier, train_val_test_split
 from tuner import optimize_hyperparameters
 
-data_path = r'C:\Users\Alka\Documents\WeatherWarden---Weather-Impact-Predictor\Backend-ML\src\Data gathering\weather_data.csv'
+data_path = r'C:\Users\Alka\Documents\WeatherWarden---Weather-Impact-Predictor\Backend-ML\src\Data_gathering\weather_data1.csv'
 
 print("\n=== Weather condition Classification ===")
 features, target = load_and_preprocess_data(data_path)

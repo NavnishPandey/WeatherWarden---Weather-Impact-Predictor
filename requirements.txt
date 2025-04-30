@@ -1,1 +1,7 @@
 matplotlib
+xgboost 
+lightgbm 
+catboost 
+tensorflow 
+scikit-learn
+imblearn
